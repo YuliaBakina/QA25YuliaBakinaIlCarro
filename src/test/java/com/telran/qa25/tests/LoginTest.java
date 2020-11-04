@@ -35,7 +35,7 @@ public class LoginTest extends TestBase {
 
     }
 
-    @Test(enabled = true)
+/*    @Test(enabled = true)
     public void loginUnregisteredUserTest() throws InterruptedException {
         System.out.println("Unregistered user login test is started");
 
@@ -93,5 +93,5 @@ public class LoginTest extends TestBase {
         //check if user have logged in
         Assert.assertFalse(appManager.getUser().isUserLoggedIn());
 
-     }
+     }*/
 }

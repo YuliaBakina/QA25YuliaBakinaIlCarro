@@ -1,10 +1,13 @@
 package com.telran.qa25.tests;
 
 import com.telran.qa25.helpers.ApplicationManager;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.testng.ITestListener;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
@@ -37,10 +40,18 @@ public class TestBase{
     }
 
 
-    @AfterMethod
-    public void stopTest(Method m){
-        logger.info("Stop test: " + m.getName());
+    @AfterMethod(alwaysRun = true)
+    public void stopTest(ITestResult result){
+        if(result.isSuccess()){
+            logger.info("PASSED: Test method --> " + result.getMethod().getMethodName());
+        }else{
+            logger.error("FAILED: Test method --> " + result.getMethod().getMethodName());
+            logger.info("Screenshot: " + appManager.getHeader().takeScreenShot());
+        }
+
+        logger.info("Stop test: " + result.getMethod().getMethodName());
         logger.info("======================================================");
     }
+
 
 }

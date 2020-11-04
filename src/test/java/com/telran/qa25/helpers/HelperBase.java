@@ -1,10 +1,12 @@
 package com.telran.qa25.helpers;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.io.IOException;
 
 public class HelperBase {
 
@@ -56,6 +58,18 @@ public class HelperBase {
 
     public String getText(By locator) {
         return wd.findElement(locator).getText();
+    }
+
+    public String takeScreenShot()  {
+        File tmp = ((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
+        File screeenshot = new File("screenshot_" + System.currentTimeMillis() + ".png");
+
+        try {
+            Files.copy(tmp,screeenshot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screeenshot.getAbsolutePath();
     }
 
 }
