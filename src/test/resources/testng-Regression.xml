@@ -5,15 +5,14 @@
         <classes>
             <class name="com.telran.qa25.tests.CreateAccountTests">
                 <methods>
-                    <include name="signUpTest.*" />
-                    <include name="signUpWithoutPasswordTest.*" />
+                    <include name="signUpFromDataProviderPositiveFromFileTest.*" />
+                    <include name="ignUpFromDataProviderNegativeFromFileTest.*" />
                 </methods>
             </class>
 
             <class name="com.telran.qa25.tests.LoginTest">
                 <methods>
-                    <exclude name="loginUserWithInvalidPasswordTest.*" />
-                    <exclude name="loginUserWithoutPasswordTest.*" />
+                    <include name="oginRegisteredUserPositiveTest.*" />
                 </methods>
             </class>
         </classes>
@@ -23,7 +22,7 @@
         <classes>
              <class name="com.telran.qa25.tests.MyCarAddTest" >
                 <methods>
-                    <include name="myCarAddByLoggedInUserPositiveTest.*" />
+                    <include name="myCarAddByLoggedInUserPositiveFromFileTest.*" />
                 </methods>
             </class>
         </classes>
