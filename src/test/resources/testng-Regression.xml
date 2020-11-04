@@ -22,6 +22,7 @@
         <classes>
              <class name="com.telran.qa25.tests.MyCarAddTest" >
                 <methods>
+
                     <include name="myCarAddByLoggedInUserPositiveFromFileTest.*" />
                 </methods>
             </class>
